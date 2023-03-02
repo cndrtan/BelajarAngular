@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-table',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class TableComponent {
   
+  reactForm = new FormGroup({
+    nameValue: new FormControl(''),
+    emailValue: new FormControl(''),
+    contactValue: new FormControl('')
+  });
+
+
+  onSubmit(){
+    console.log(this.reactForm.value)
+  }
 }
