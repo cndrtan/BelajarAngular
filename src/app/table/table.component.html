@@ -1,16 +1,49 @@
-<form class="container" [formGroup]="reactForm" (ngSubmit)="onSubmit()">
+<form class="container" [formGroup]= "reactForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="nameValue">Name</label>
         <input type="text" class="form-control" id="nameValue" name="nama" placeholder="Text Input" formControlName="nameValue">
+        <span style="color: red;" *ngIf = "getNameValue && getNameValue.invalid && getNameValue.touched">This field is Required</span>
+        <br>
     </div>
     <div class="form-group">
         <label for="emailValue">Email</label>
         <input type="email" class="form-control" id="emailValue" placeholder="Text Input" name="email" formControlName="emailValue">
+        <span style="color: red;" *ngIf = "getEmailValue && getEmailValue.invalid && getEmailValue.touched">This field is Required</span>
+        <br>
     </div>
     <div class="form-group">
         <label for="contactValue">Contact</label>
         <input type="tel" class="form-control" id="contactValue" placeholder="Text Input" name="contact" formControlName="contactValue">
+        <span style="color: red;" *ngIf = "getContactValue && getContactValue.invalid && getContactValue.touched">This field is Required</span>
+        <br>
     </div>
 
-    <button type="submit" class="btn btn-primary">Add / Update</button>
+    <button type="submit" class="btn btn-primary" [disabled] = "reactForm.invalid">Add / Update</button>
 </form>
+
+<table class="table container">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Contact</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let item of myObjArray, let indexOfelement = index;">
+            <td scope="row"> {{ indexOfelement + 1 }} </td>
+            <td>{{ item.nameValue }}</td>
+            <td>{{ item.emailValue }}</td>
+            <td>{{ item.contactValue }}</td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button class="btn btn-info">View</button>
+                    <button class="btn btn-primary">Update</button>
+                    <button class="btn btn-danger" (click)="deleteData(item)">Delete</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
