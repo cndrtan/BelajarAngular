@@ -41,4 +41,9 @@ export class TableComponent {
         this.myObjArray.splice(index, 1);
     }        
   }
+
+  updateData(data:any){
+    this.reactForm.setValue(data);
+    this.deleteData(data);
+  }
 }
