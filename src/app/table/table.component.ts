@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -7,6 +8,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent {
+
+  constructor(private router: Router) {}
+
+  @Output() view: EventEmitter<any> = new EventEmitter();
   
   reactForm = new FormGroup({
     nameValue: new FormControl('', [Validators.required]),
@@ -24,7 +29,10 @@ export class TableComponent {
     return this.reactForm.get('contactValue');
   }
 
-  myObjArray: any = []
+  selectedData: any;
+
+  //myObjArray: any = []
+  myObjArray: any = [{nameValue: 'Candra',emailValue: 'candra@mail.com', contactValue: '2384793'}]
 
   onSubmit(){
     this.myObjArray.push(this.reactForm.value);
@@ -45,5 +53,12 @@ export class TableComponent {
   updateData(data:any){
     this.reactForm.setValue(data);
     this.deleteData(data);
+  }
+
+  viewClick(input: any){
+    if (input) {
+      // this.view.emit(input);
+      this.router.navigate(['detail'],{queryParams:input})
+    }
   }
 }

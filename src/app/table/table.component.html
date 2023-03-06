@@ -39,7 +39,7 @@
             <td>{{ item.contactValue }}</td>
             <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <button class="btn btn-info">View</button>
+                    <button class="btn btn-info" (click)="viewClick(item)">View</button>
                     <button class="btn btn-primary" (click)="updateData(item)">Update</button>
                     <button class="btn btn-danger" (click)="deleteData(item)">Delete</button>
                 </div>

@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'BelajarAngular';
   message = 'Coba kalau pake typescript';
+
+  ambilData: any;
+
+  test(event:any){
+    this.ambilData = event;
+  }
 }
