@@ -17,6 +17,6 @@ export class DetailComponent {
   }
 
   backClick(){
-    this.router.navigate(['table']);
+    this.router.navigate(['form']);
   }
 }
