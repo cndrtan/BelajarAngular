@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
@@ -10,7 +11,7 @@ import { DetailComponent } from './detail/detail.component';
 
 const routes: Routes = [
   { path: 'form', component: FormComponent },
-  { path: 'detail', component: DetailComponent},
+  { path: 'detail/:id', component: DetailComponent},
   { path: '', redirectTo: 'form', pathMatch: 'full'}
 ];
 
@@ -25,7 +26,8 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

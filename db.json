@@ -1,0 +1,28 @@
+{
+  "contact": [
+    {
+      "name": "Candra",
+      "email": "candra@mail.com",
+      "phone": "893729873623",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Winardi12",
+      "email": "winardi@mail.com",
+      "phone": "2938749283723"
+    },
+    {
+      "id": 3,
+      "name": "icaica",
+      "email": "ica@mail.com",
+      "phone": "329874928730"
+    },
+    {
+      "name": "test",
+      "email": "test@mail.com",
+      "phone": "293874236222",
+      "id": 4
+    }
+  ]
+}
